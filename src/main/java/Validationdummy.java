@@ -1,6 +1,5 @@
 import java.io.InputStream;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.HashMap;
 import org.everit.json.schema.ValidationException;
 import org.everit.json.schema.loader.SchemaClient;
@@ -21,9 +20,9 @@ class ValidationDummy {
     URL schemaURL = getClass().getResource(schemaPath);
     String[] splitClassPathArray = schemaURL.getPath().split("/");
     String[] finalizedsplitClasspathArray = Arrays
-        .copyOfRange(splitClassPathArray, 0, splitClassPathArray.length - 1);
+        .copyOfRange(splitClassPathArray, 1, splitClassPathArray.length - 1);
     String cutClasspath = String.join("/", finalizedsplitClasspathArray);
-    String finalclasspath = "classpath:/" + cutClasspath + "/";
+    String finalclasspath = "classpath://" + cutClasspath + "/";
 
     // Convert schema and map into JsonObject
     JSONObject rawSchema = new JSONObject(new JSONTokener(inputStream));
