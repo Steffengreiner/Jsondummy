@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "child.schema.json",
+  "title": "Child Entry",
+  "description": "Child Schema for inclusion into parent schema",
+  "definitions": {
+    "MyBool": {
+      "type": "object",
+      "properties": {
+        "type": "string",
+        "enum": ["true", "false", "file not found"]
+      }
+    },
+    "required": ["MyBool"],
+    "additionalProperties": false
+  }
+}
